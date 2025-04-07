@@ -1,2 +1,0 @@
-# uxsleuth
-Codebase for UXsleuth
