@@ -16,7 +16,7 @@ The server code is located in the /server directory along with its Dockerfile.
 THe frontend react code is located in the /client directory along with its Dockerfile.
 
 The file structure is as follows:
-
+```
 uxsleuth_app
 |-client/		React frontend application
 | |-Dockerfile.dev	Dockerfile with development commands, variables, etc.
@@ -40,7 +40,7 @@ uxsleuth_app
 |-compose.dev.yaml	docker compose yaml file, configured for a dev environment
 |-compose.prod.yaml	docker compose override for production environment (simply points to the Dockerfile.prod path in both of server/ and client/)
 |-Makefile		features dev and prod targets to start the containers
-
+```
 # Setting up the dev environment
 The server and client subdirectories each contain a Dockerfile.dev and Dockerfile.prod file that contains the relevant environmental variables and docker commands for the respective development and production environments. The Makefile at the root of the project contains targets dev and prod. 
 
