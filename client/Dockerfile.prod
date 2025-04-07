@@ -1,0 +1,24 @@
+FROM node:18.17.1-alpine
+RUN npm install -g serve
+
+WORKDIR /client
+
+COPY package.json ./
+
+RUN npm install
+
+COPY . .
+
+# Defining env vars in compose for prod doesn't work; define them here instead
+ARG VITE_APP_ENV
+ARG VITE_APP_HOST
+ARG PORT
+ENV VITE_APP_ENV $VITE_APP_ENV
+ENV VITE_APP_HOST $VITE_APP_HOST
+ENV PORT $PORT
+
+RUN npm run build
+
+# Default port is 3000
+# Also note: This shell form below actually processes the env var
+CMD serve -l $PORT -s dist

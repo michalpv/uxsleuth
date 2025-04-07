@@ -1,0 +1,15 @@
+FROM node:18.17.1-alpine
+
+WORKDIR /server
+
+# Copy package.json separately so that Docker caches npm install
+COPY package.json ./
+
+RUN npm install
+
+# For local puppeteer testing
+RUN apk add chromium
+
+COPY . .
+
+CMD ["npm", "run", "start"]
